@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Form Invoice{% endblock %}
+
+{% block body %}
+
+<div class="container text-center">
+        <h1>Manage an invoice</h1>
+        {% if notification %}
+        <div class="alert alert-info"> {{ notification }} </div>
+        {% endif %}
+            <hr>
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+            {{ form_start(form_invoice_lines) }}
+            <div class="row">
+               <div class="col-md-12">
+                   {{ form_row(form_invoice_lines.Description) }}
+               </div>
+
+               <div class="col-md-12">
+                {{ form_row(form_invoice_lines.Quantity) }}
+               </div>
+
+               <div class="col-md-12">
+                {{ form_row(form_invoice_lines.Amount) }}
+               </div>
+
+               <div class="col-md-12">
+                {{ form_row(form_invoice_lines.VAT_Amount) }}
+            </div>
+
+            <div class="col-md-12">
+                {{ form_row(form_invoice_lines.Total_with_VAT) }}
+            </div>
+            
+            <div class="col-md-12">
+                {{ form_row(form_invoice_lines.Invoice_Id) }}
+            </div>
+           
+            </div>
+                   
+            {{ form_end(form_invoice_lines) }}
+
+          
+
+            <br>
+
+        </div>
+
+        <div class="col-lg-6">
+            <span style="color: red;">Création de facture pour notre client</span>
+			<p class="lead">
+				<br>
+				Lorem ippum pa! <br>
+                <a href="{{ path('app_invoice')}}" class="btn-primary btn-sm">Create another invoice</a>
+			</p>
+        </div>    
+    </div>
+
+
+
+
+{% endblock %}
